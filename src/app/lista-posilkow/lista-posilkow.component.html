@@ -1,0 +1,5 @@
+<h2>Lista </h2>
+
+<div *ngFor="let p of posilki">
+  <app-posilek [posilek]="p" (dodanoDoDiety)="dodano(p)"></app-posilek>
+</div>

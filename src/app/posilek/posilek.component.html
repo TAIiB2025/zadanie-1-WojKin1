@@ -1,0 +1,37 @@
+<div class="posilek" [ngStyle]="{ 'background-color': posilek.kalorycznosc > 1000 ? '#f8d7da' : 'white' }">
+    <ng-container *ngIf="pokazSzczegoly; else tylkoNazwa">
+      <table>
+        <tr>
+          <td><strong>producent:</strong></td>
+          <td>{{ posilek.producent }}</td>
+        </tr>
+        <tr>
+          <td><strong>nazwa:</strong></td>
+          <td>{{ posilek.nazwa }}</td>
+        </tr>
+        <tr>
+          <td><strong>kalorycznosc:</strong></td>
+          <td>{{ posilek.kalorycznosc }} kcal</td>
+        </tr>
+        <tr>
+          <td><strong>data waznosci:</strong></td>
+          <td>{{ posilek.dataWaznosci | date:'dd.MM.yyyy' }}</td>
+        </tr>
+        <tr>
+          <td><strong>ilosc w diecie:</strong></td>
+          <td>{{ posilek.iloscWDiecie }}</td>
+        </tr>
+      </table>
+  
+      <button (click)="dodaj()">dodaj do diety</button>
+    </ng-container>
+  
+    <ng-template #tylkoNazwa>
+      <strong>{{ posilek.nazwa }}</strong>
+    </ng-template>
+  
+    <button (click)="przelaczWidok()">
+      {{ pokazSzczegoly ? 'zwin' : 'rwzwin' }}
+    </button>
+  </div>
+  

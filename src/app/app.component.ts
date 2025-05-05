@@ -1,12 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ListaPosilkowComponent } from './lista-posilkow/lista-posilkow.component';
+import { DietaComponent } from './dieta/dieta.component';
+
+
+
 
 @Component({
+
+
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, ListaPosilkowComponent, DietaComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
-  title = 'taiib_zadanie';
+  pokazujPosilki = true;
+
+  przelaczWidok() {
+    this.pokazujPosilki = !this.pokazujPosilki;
+  }
 }
